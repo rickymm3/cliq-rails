@@ -3,6 +3,9 @@
     =link_to "Find Levels", mario_levels_path
   %li
     =link_to "Add Your Level", new_mario_level_path
+  %li
+    =link_to "Forum", cliq_path('super-mario-maker')
+
 %ul.nav.navbar-nav.pull-right.navbar-mario
   %li.pull-right.mario-account
     =render "mariomaker/account"
@@ -11,6 +14,7 @@
   %ul.list-inline
     %li=link_to "Find Levels", mario_levels_path
     %li=link_to "Add Your Level", new_mario_level_path
+    %li=link_to "Forum", cliq_path('super-mario-maker')
     =render "mariomaker/account"
 
 

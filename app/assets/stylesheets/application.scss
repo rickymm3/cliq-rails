@@ -166,15 +166,15 @@ ul {
   color: #e7e7e7;
 }
 
-.pretty th .current {
+.pretty .current {
   padding-right: 12px;
   background-repeat: no-repeat;
   background-position: right center;
 }
-.pretty th .asc {
+.pretty .asc {
   background-image: url(up_arrow.gif);
 }
 
-.pretty th .desc {
+.pretty .desc {
   background-image: url(down_arrow.gif);
 }
