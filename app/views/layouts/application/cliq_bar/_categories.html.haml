@@ -12,8 +12,6 @@
         %li No cliq info currently
     %ul.list-inline.align-top.pull-right
       %li
-        %i.fa.fa-user
-      %li
-        %i.fa.fa-beer
-      %li
-        %i.fa.fa-fighter-jet
+        =link_to mariomaker_index_path do
+          ="Mario Maker:"
+          =image_tag 'mario_icon.png', size: '22x20', style:"padding-bottom:3px;"

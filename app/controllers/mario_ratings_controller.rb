@@ -37,6 +37,21 @@ class MarioRatingsController < ApplicationController
     params.require(:mario_rating).permit(:fun, :puzzle, :difficulty, :overall)
   end
 
+  def update_mario_level_rank(level, mario_rating_params)
+    ratings = MarioRating.where(mario_level_id: level.id)
+    fun = level.fun_rank ||= 0
+    puzzle = level.puzzle_rank ||= 0
+    difficulty = level.difficulty_rank ||= 0
+    overall = level.overall_rank ||= 0
+
+    fun = (fun + mario_rating_params[:fun].to_i)/(ratings.count + 1)
+    puzzle = (puzzle + mario_rating_params[:puzzle].to_i)/(ratings.count + 1)
+    difficulty = (difficulty + mario_rating_params[:difficulty].to_i)/(ratings.count + 1)
+    overall = (overall + mario_rating_params[:overall].to_i)/(ratings.count + 1)
+
+    level.update_attributes(fun_rank:fun,puzzle_rank:puzzle,difficulty_rank:difficulty, overall_rank:overall)
+  end
+
   def save_rating(rating)
     if  MarioRating.where(user_id:current_user.id, mario_level_id: @mario_level.id).exists?
       @notice = "You have already rated this level"
@@ -44,7 +59,14 @@ class MarioRatingsController < ApplicationController
       @notice = "A user from your IP has already rated this level"
     else
       rating.save
+      check_winner(rating)
       @notice = "Your Rating has been submitted!"
+    end
+  end
+
+  def check_winner(rating)
+    if MarioRating.where(mario_level_id: rating.mario_level_id).count = 50
+      MarioWinner.winner = @mario_level.user
     end
   end
 

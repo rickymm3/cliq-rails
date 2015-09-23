@@ -22,21 +22,6 @@ module MarioHelper
     end
   end
 
-  def update_mario_level_rank(level, mario_rating_params)
-    ratings = MarioRating.where(mario_level_id: level.id)
-    fun = level.fun_rank ||= 0
-    puzzle = level.puzzle_rank ||= 0
-    difficulty = level.difficulty_rank ||= 0
-    overall = level.overall_rank ||= 0
-
-    fun = (fun + mario_rating_params[:fun].to_i)/(ratings.count + 1)
-    puzzle = (puzzle + mario_rating_params[:puzzle].to_i)/(ratings.count + 1)
-    difficulty = (difficulty + mario_rating_params[:difficulty].to_i)/(ratings.count + 1)
-    overall = (overall + mario_rating_params[:overall].to_i)/(ratings.count + 1)
-
-    level.update_attributes(fun_rank:fun,puzzle_rank:puzzle,difficulty_rank:difficulty, overall_rank:overall)
-  end
-
   def check_mario_image(level)
     unless level.ss_loc == ""
       image_tag(level.ss_loc, size: '160x120')
