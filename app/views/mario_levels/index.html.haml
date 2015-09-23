@@ -1,40 +1,39 @@
-.mario-welcome
-  %p
-    Welcome to the Level Finder!
-  %p
-    Use the filters below to find the exact level you're looking for!  Fun, Puzzling, or Difficult?
-  %p
-    Played a level? Be sure to RATE it when youre done to keep the best levels on top!
-  %br
-  .level-filter Filter:
-  .level-filter=sortable "l_category_id", "Category"
-  .level-filter=sortable "name"
-  .level-filter=sortable "fun_rank", "Fun"
-  .level-filter=sortable "puzzle_rank", "Puzzle"
-  .level-filter=sortable "difficulty_rank", "Difficulty"
-  .level-filter=sortable "overall_rank", "Overall"
-  .level-filter=sortable "created_at", "Uploaded"
-  %br
-  %hr
-    =render "mario_levels/mario_level_list"
-  -#%table.pretty.table-striped.table
-  -#  %tr
-  -#    %th=sortable "l_category_id", "Category"
-  -#    %th{width: "100px"}= sortable "name"
-  -#    %th= sortable "fun_rank", "Fun"
-  -#    %th= sortable "puzzle_rank", "Puzzle"
-  -#    %th= sortable "difficulty_rank", "Difficulty"
-  -#    %th= sortable "level_code", "Level Code"
-  -#    %th= sortable "overall_rank", "Overall"
-  -#    %th= sortable "created_at", "Uploaded"
-  -#
-  -#  - for level in @levels
-  -#    %tr
-  -#      %td=level.l_category.category.capitalize
-  -#      %td=link_to level.name, level
-  -#      %td=level.fun_rank
-  -#      %td=level.puzzle_rank
-  -#      %td=level.difficulty_rank
-  -#      %td=level.level_code
-  -#      %td=level.overall_rank
-  -#      %td=time_ago_in_words(level.created_at)
+%p
+  Welcome to the Level Finder!
+%p
+  Use the filters below to find the exact level you're looking for!  Fun, Puzzling, or Difficult?
+%p
+  Played a level? Be sure to RATE it when youre done to keep the best levels on top!
+%br
+.level-filter Filter:
+.level-filter=sortable "l_category_id", "Category"
+.level-filter=sortable "name"
+.level-filter=sortable "fun_rank", "Fun"
+.level-filter=sortable "puzzle_rank", "Puzzle"
+.level-filter=sortable "difficulty_rank", "Difficulty"
+.level-filter=sortable "overall_rank", "Overall"
+.level-filter=sortable "created_at", "Uploaded"
+%br
+%hr
+  =render "mario_levels/mario_level_list"
+-#%table.pretty.table-striped.table
+-#  %tr
+-#    %th=sortable "l_category_id", "Category"
+-#    %th{width: "100px"}= sortable "name"
+-#    %th= sortable "fun_rank", "Fun"
+-#    %th= sortable "puzzle_rank", "Puzzle"
+-#    %th= sortable "difficulty_rank", "Difficulty"
+-#    %th= sortable "level_code", "Level Code"
+-#    %th= sortable "overall_rank", "Overall"
+-#    %th= sortable "created_at", "Uploaded"
+-#
+-#  - for level in @levels
+-#    %tr
+-#      %td=level.l_category.category.capitalize
+-#      %td=link_to level.name, level
+-#      %td=level.fun_rank
+-#      %td=level.puzzle_rank
+-#      %td=level.difficulty_rank
+-#      %td=level.level_code
+-#      %td=level.overall_rank
+-#      %td=time_ago_in_words(level.created_at)

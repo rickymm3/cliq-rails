@@ -4,32 +4,31 @@
   %meta{ :property => "og:title", :content => "MarioMaker - #{@mario_level.name}"}
   %meta{ :property => "og:description", :content => "#{@mario_level.description}"}
 
-.mario-welcome
-  .mario-level-left
-    .mario-screen-shot
-      =check_mario_image(@mario_level)
-    .mario-level
-      =render "mario_levels/stage_name", level:@mario_level
-    .mario-description
-      =@mario_level.description
-    .mario-category
-      =@mario_level.l_category.category
-    .mario-level-code
-      =render "mario_levels/rate_id", level:@mario_level
-    .mario-level-plays
-      ="Total Plays: #{@count}"
-    .mario-owner
-      ="Owner: #{@mario_level.user.username ||= ''}"
-    -if own_level?
-      -if @mario_level.user_id == current_user.id
-        .mario-owned
-          You own this level!
-        =link_to "edit?", edit_mario_level_path(@mario_level)
-    .fb-share
-      .fb-share-button{"data-href" => "http://cliqboards.com/mariomaker/levels/#{@mario_level.id}", "data-layout" => "button_count"}
-    .ranks
-      =render "mario_levels/level_ranks", level:@mario_level
-  #disqus_thread
+.mario-level-left
+  .mario-screen-shot
+    =check_mario_image(@mario_level)
+  .mario-level
+    =render "mario_levels/stage_name", level:@mario_level
+  .mario-description
+    =@mario_level.description
+  .mario-category
+    =@mario_level.l_category.category
+  .mario-level-code
+    =render "mario_levels/rate_id", level:@mario_level
+  .mario-level-plays
+    ="Total Plays: #{@count}"
+  .mario-owner
+    ="Owner: #{@mario_level.user.username ||= ''}"
+  -if own_level?
+    -if @mario_level.user_id == current_user.id
+      .mario-owned
+        You own this level!
+      =link_to "edit?", edit_mario_level_path(@mario_level)
+  .fb-share
+    .fb-share-button{"data-href" => "http://cliqboards.com/mariomaker/levels/#{@mario_level.id}", "data-layout" => "button_count"}
+  .ranks
+    =render "mario_levels/level_ranks", level:@mario_level
+#disqus_thread
 
 :javascript
   /* * * CONFIGURATION VARIABLES * * */
