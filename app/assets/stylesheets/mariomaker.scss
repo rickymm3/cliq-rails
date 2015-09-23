@@ -2,7 +2,11 @@
   background-color: #efd63b;
   height: 170px;
   position: relative;
-//  background-image: url(mario_side.png);
+//  background-image: url(mario-background.png);
+//  background-size: 865px 170px;
+//  background-repeat: no-repeat;
+//  background-position: right;
+
 }
 
 .mario-nav {
@@ -228,4 +232,10 @@
     font-size: 12px;
   }
   padding-left: 15px;
+}
+
+.mario-blocks {
+  height: 15px;
+  background-image: url(mario_block.png);
+  background-size: 15px 15px;
 }
