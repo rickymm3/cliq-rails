@@ -66,7 +66,7 @@ class MarioRatingsController < ApplicationController
 
   def check_winner(rating)
     if ratings = MarioRating.where(mario_level_id: rating.mario_level_id)
-      if ratings.count = 50
+      if ratings.count == 50
         MarioWinner.winner = @mario_level.user
       end
     end
