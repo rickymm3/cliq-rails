@@ -25,7 +25,7 @@ class MarioUserCommentsController < ApplicationController
   end
 
   def save_if_not_too_frequent
-    if comment = MarioUserComment.where(commenter: current_user).last
+    if comment = MarioUserComment.where(commenter: current_user, mario_level_id: @mario_level.id).last
       if comment.created_at > 10.minutes.ago
         @notice = "You can't post a new comment yet. Please wait 10 minutes before posts}"
       else
