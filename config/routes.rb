@@ -18,6 +18,7 @@ BaseApp::Application.routes.draw do
             resources :mario_ratings, path: 'rate'
           end
         end
+        resources :mario_user_comments
       end
       resources :mario_levels, :path => 'levels', only: [:index, :show]
     end

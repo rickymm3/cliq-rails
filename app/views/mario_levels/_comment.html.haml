@@ -1,0 +1,8 @@
+.mario-comment
+  .comment.panel
+    .div
+      .pull-right
+        ="by: "
+        =link_to comment.commenter.username, marioprofile_user_path(comment.commenter)
+    .comment
+      =comment.comment

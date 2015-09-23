@@ -1,0 +1,12 @@
+=simple_form_for [@comment] do |f|
+  .row.col-lg-12.col-md-12.col-sm-12
+    .input-group
+      =f.search_field :comment,
+        type: "search",
+        class: "form-control",
+        placeholder: "Enter Comment Here",
+        value: nil
+      =f.input :mario_level_id, as: :hidden
+      %span.input-group-btn
+        =button_tag type:'submit', class: "btn btn-search", name: nil do
+          %i.fa.fa-search

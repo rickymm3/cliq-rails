@@ -33,6 +33,8 @@ class MarioLevelsController < ApplicationController
     @mario_level = MarioLevel.find(params[:id])
     @count = MarioRating.where(mario_level_id: @mario_level.id).count
     @fun = @mario_level
+    @comments = MarioUserComment.where(mario_level_id: @mario_level.id)
+    @comment = MarioUserComment.new(mario_level_id:@mario_level.id)
   end
 
   def edit

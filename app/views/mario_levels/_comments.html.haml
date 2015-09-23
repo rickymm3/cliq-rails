@@ -1,0 +1,6 @@
+.mario-comment-submit
+  =render "mario_levels/comment_form"
+.mario-comments
+  %h4 Comments
+  -@comments.each do |comment|
+    =render "mario_levels/comment", comment:comment

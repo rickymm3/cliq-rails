@@ -97,6 +97,11 @@
   }
 }
 
+.mario-comment-submit {
+  display: block;
+  clear:left;
+}
+
 .level-id {
   color: white;
   font-weight: bold;
@@ -204,4 +209,23 @@
 
 .fb-share {
   margin-bottom: 5px;
+}
+
+.mario-comment {
+  clear:left;
+  display: block;
+}
+
+.mario-comment-submit {
+  clear:left;
+  display: block;
+}
+
+.level-comments {
+  clear: both;
+  display:block;
+  a {
+    font-size: 12px;
+  }
+  padding-left: 15px;
 }
