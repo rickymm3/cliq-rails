@@ -172,9 +172,9 @@ ul {
   background-position: right center;
 }
 .pretty .asc {
-  background-image: url(up_arrow.gif);
+  background-image: asset-data-url('up_arrow.gif');
 }
 
 .pretty .desc {
-  background-image: url(down_arrow.gif);
+  background-image: asset-data-url('down_arrow.gif');
 }
