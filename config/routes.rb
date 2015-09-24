@@ -13,14 +13,14 @@ BaseApp::Application.routes.draw do
   resources :mariomaker do
     collection do
       authenticate :user do
-        resources :mario_levels, :path => 'levels', only: [:new, :create, :edit, :patch] do
+        resources :mario_levels, :path => 'levels' do
           member do
             resources :mario_ratings, path: 'rate'
           end
         end
         resources :mario_user_comments
       end
-      resources :mario_levels, :path => 'levels', only: [:index, :show]
+      resources :mario_levels, :path => 'levels'
     end
   end
 

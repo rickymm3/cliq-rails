@@ -37,6 +37,15 @@ class MarioLevelsController < ApplicationController
     @comment = MarioUserComment.new(mario_level_id:@mario_level.id)
   end
 
+  def update
+    @mario_level = MarioLevel.find(params[:id])
+    if @mario_level.update(mario_level_params)
+      redirect_to [@mario_level], notice: "#{@mario_level.name} was successfully updated."
+    else
+      render :edit
+    end
+  end
+
   def edit
     @mario_level = MarioLevel.find(params[:id])
   end
