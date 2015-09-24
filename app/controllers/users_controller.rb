@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def marioprofile
     @user = User.friendly.find(params[:id])
-    @title = "#{user.username}'s Profile'"
+    @title = "#{current_user.username}'s Profile'"
     @levels = MarioLevel.where(user_id:@user.id).paginate(:per_page => 20, :page => params[:page])
   end
 
