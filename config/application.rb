@@ -36,5 +36,6 @@ module BaseApp
 
     # Heroku required setting
     config.assets.initialize_on_precompile = false
+    config.assets.version = '1.2'
   end
 end
