@@ -37,6 +37,7 @@ class MarioLevelsController < ApplicationController
     @fun = @mario_level
     @comments = MarioUserComment.where(mario_level_id: @mario_level.id)
     @comment = MarioUserComment.new(mario_level_id:@mario_level.id)
+    @title = "#{@mario_level.name}"
   end
 
   def update
