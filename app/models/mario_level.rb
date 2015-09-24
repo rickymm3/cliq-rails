@@ -70,8 +70,8 @@ class MarioLevel < ActiveRecord::Base
   def self.options_for_sorted_by
     [
         ['Name', 'name_asc'],
-        ['Uploaded (newest)', 'created_at_asc'],
-        ['Uploaded (oldest)', 'created_at_desc']
+        ['Uploaded (oldest)', 'created_at_asc'],
+        ['Uploaded (newest)', 'created_at_desc']
     ]
   end
 
