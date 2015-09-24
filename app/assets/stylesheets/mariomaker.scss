@@ -1,6 +1,6 @@
 .mario-header {
+  height: 135px;
   background-color: #efd63b;
-  height: 170px;
   position: relative;
 //  background-image: url(mario-background.png);
 //  background-size: 865px 170px;
@@ -79,6 +79,7 @@
 }
 
 .mario-level-row {
+  margin-left:15px;
   margin-bottom: 20px;
 }
 
@@ -88,7 +89,8 @@
 }
 
 .mario-level-body {
-  margin-left: 15px;
+  margin-left: 30px;
+  max-width: 725px;
   a {
     font-size: 18px;
   }
@@ -118,6 +120,7 @@
 
 .mario-level-ranks {
   margin-top: 5px;
+
 }
 
 .fun-rank {
@@ -181,25 +184,17 @@
   float:left;
 }
 
-@media (max-width: 768px) {
-  .navbar-mario {
-    display: none;
+@media (max-width: 480px) {
+  .mario-level-body {
+    padding-left: 0px;
   }
-  .navbar-2 {
-    left: 220px;
-    bottom: 30px;
-    position:absolute;
-    display: block!important;
-  }
-  .mario-container {
-    margin-top: 10px;
-    margin-left: 10px;
-  }
-
-  .mario-level-image {
-    float:left
+  .overall-rank {
+    margin-top: 5px;
+    float:left;
   }
 }
+
+
 
 .mario-welcome {
   margin-top: 30px;
@@ -238,4 +233,14 @@
   height: 15px;
   background-image: asset-data-url('mario_block.png');
   background-size: 15px 15px;
+  position:relative;
+}
+
+.goomba {
+  position:absolute;
+  padding-left: 300px;
+  margin:auto;
+  top: -18px;
+  width: 15px;
+  height: 15px;
 }

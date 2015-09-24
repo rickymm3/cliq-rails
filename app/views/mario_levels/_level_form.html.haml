@@ -1,21 +1,20 @@
-.mario-container
-  =simple_form_for [@mario_level] do |f|
-    %div.field
-      =f.input :name, input_html: {class: "form-control"}
-      =f.input :description, as: :text, input_html: {class: "form-control"}
-      (For Screenshot URL, please go to your
-      =link_to "miiverse", "https://miiverse.nintendo.net/activity"
-      profile,
-      %br
-      find your Level, right click the image, and select 'Copy Image URL'.
-      %br
-      Any other image will not work)
+=simple_form_for [@mario_level] do |f|
+  %div.field
+    =f.input :name, input_html: {class: "form-control"}
+    =f.input :description, as: :text, input_html: {class: "form-control"}
+    (For Screenshot URL, please go to your
+    =link_to "miiverse", "https://miiverse.nintendo.net/activity"
+    profile,
+    %br
+    find your Level, right click the image, and select 'Copy Image URL'.
+    %br
+    Any other image will not work)
 
-      =f.input :ss_loc, label:"Screenshot URL", input_html: {class: "form-control"}
-      =f.input :level_code, input_html: {class: "form-control"}
-      =f.association :l_category, label_method: :category,
-                      value_method: :id,
-                      as: :radio_buttons,
-                      checked: LCategory.first.id,
-                      label: "Classify your Level"
-      =f.submit 'Submit!',  class: "btn btn-default"
+    =f.input :ss_loc, label:"Screenshot URL", input_html: {class: "form-control"}
+    =f.input :level_code, input_html: {class: "form-control"}
+    =f.association :l_category, label_method: :category,
+                    value_method: :id,
+                    as: :radio_buttons,
+                    checked: LCategory.first.id,
+                    label: "Classify your Level"
+    =f.submit 'Submit!',  class: "btn btn-default"

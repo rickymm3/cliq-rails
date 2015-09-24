@@ -2,30 +2,32 @@
   =paginate @levels
 -@levels.each do |level|
   .row.mario-level-row
-    .col-sm-12.mario-level-span
-      .col-sm-2.mario-level-image
-        =check_mario_image(level)
-      .col-sm-9.mario-level-body
-        .col-sm-9.pull-left
-          =render "mario_levels/stage_name", level:level
-          %p.mario-normal-text
-            =level.description
-        .col-sm-9.pull-left.mario-level-owner
-          Created by:
-          =link_to level.user.username, marioprofile_user_path(level.user)
-        .col-sm-9.pull-left
-          =render "mario_levels/rate_id", level:level
-        .col-sm-9.pull-left.mario-level-ranks
-          =render "mario_levels/level_ranks", level:level
-        -if comments
-          .level-comments
-            .level-show-hide
-              %a{href:"#", id:"show-hide"}
-                Show/hide
-              ="comments (#{level.mario_user_comments.count})"
-            #level-comments{style:"display:none;"}
-              -level.mario_user_comments.each do |comment|
-                =render "mario_levels/comment", comment:comment
+    .mario-level-span
+      .row
+        .col-xs-2.mario-level-image
+          =check_mario_image(level)
+        .col-xs-7.mario-level-body
+          .row
+            %div
+              =render "mario_levels/stage_name", level:level
+              %p.mario-normal-text
+                =level.description
+            .mario-level-owner
+              Created by:
+              =link_to level.user.username, marioprofile_user_path(level.user)
+            %div
+              =render "mario_levels/rate_id", level:level
+            .mario-level-ranks
+              =render "mario_levels/level_ranks", level:level
+            -if comments
+              .level-comments
+                .level-show-hide
+                  %a{href:"#", id:"show-hide"}
+                    Show/hide
+                  ="comments (#{level.mario_user_comments.count})"
+                #level-comments{style:"display:none;"}
+                  -level.mario_user_comments.each do |comment|
+                    =render "mario_levels/comment", comment:comment
 
 .pagination-container
   =paginate @levels

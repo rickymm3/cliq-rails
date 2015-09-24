@@ -1,5 +1,17 @@
-.row.mario-header
+.mario-header
   =render "mariomaker/brand"
-  .mario-nav-links.nav.navbar
-    =render "mariomaker/nav_links"
-.row.mario-blocks
+.mario-blocks
+  .goomba
+    =image_tag('goomba.png', size: "15x15")
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      =render "mariomaker/nav_links"
+
+
