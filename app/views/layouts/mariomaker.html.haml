@@ -23,11 +23,10 @@
     = yield :head
 %body
   =render "mariomaker/nav"
-  .container-fluid
-    .row
-      .col-lg-12.col-md-12.col-sm-12
-        = bootstrap_flash
-        =yield
+  .container
+    .mario-body.panel.col-lg-12.col-md-12.col-sm-12
+      = bootstrap_flash
+      =yield
 %footer
   =render "shared/google_analytics"
 
