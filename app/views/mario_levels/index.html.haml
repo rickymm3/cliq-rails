@@ -8,22 +8,11 @@
     Rating Points!
     %br
     Rate more levels to upload more stages!
-%p
-  Use the filters below to find the exact level you're looking for!  Fun, Puzzling, or Difficult?
-%p
-  Played a level? Be sure to RATE it when youre done to keep the best levels on top!
-%br
-.level-filter.pretty Filter:
-.level-filter.pretty=sortable "l_category_id", "Category"
-.level-filter.pretty=sortable "name"
-.level-filter.pretty=sortable "fun_rank", "Fun"
-.level-filter.pretty=sortable "puzzle_rank", "Puzzle"
-.level-filter.pretty=sortable "difficulty_rank", "Difficulty"
-.level-filter.pretty=sortable "overall_rank", "Overall"
-.level-filter.pretty=sortable "created_at", "Uploaded"
-%br
-%hr
+
+=render "mario_levels/filter"
+#results
   =render "mario_levels/mario_level_list", comments:false
+  -#=render "mario_levels/mario_level_list", comments:false
 -#%table.pretty.table-striped.table
 -#  %tr
 -#    %th=sortable "l_category_id", "Category"

@@ -5,7 +5,16 @@ class MarioLevelsController < ApplicationController
 
 
   def index
-    @levels = MarioLevel.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
+    @filterrific = initialize_filterrific(
+        MarioLevel,
+        params[:filterrific],
+        :select_options => {
+            sorted_by: MarioLevel.options_for_sorted_by,
+            with_l_category_id: LCategory.options_for_select
+        }
+    ) or return
+    @levels = @filterrific.find.page(params[:page])
+    # @levels = MarioLevel.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
 
   def new

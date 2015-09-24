@@ -1,0 +1,6 @@
+<% js = escape_javascript(
+  render(
+    :partial => 'mario_levels/mario_level_list', comments: false
+  )
+) %>
+$("#results").html("<%= js %>");

@@ -15,7 +15,7 @@
 //= require jasny-bootstrap
 //= require owl-carousel
 //= require bootstrap-slider
-
+//= require filterrific/filterrific-jquery
 // //= require_tree .
 
 $( document ).ready(function() {

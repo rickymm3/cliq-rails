@@ -1,0 +1,29 @@
+.well
+  = form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' }do |f|
+    .row
+      .col-xs-12.col-sm-4
+        .form-group
+          %label Search
+          = f.text_field :search_query, class: 'filterrific-periodically-observed form-control'
+      .col-xs-6.col-sm-4
+        .form-group
+          %label Category
+          = f.select :with_l_category_id,
+                     @filterrific.select_options[:with_l_category_id],
+                     { :include_blank => '- Any -' },
+                     { :class => 'form-control' }
+      .col-xs-6.col-sm-4
+        .form-group
+          %label Sorted by
+          = f.select :sorted_by,
+                     @filterrific.select_options[:sorted_by],
+                     {},
+                     { :class => 'form-control' }
+    = f.submit 'Filter', class: 'btn-submit form-control'
+-#.level-filter.pretty=sortable "l_category_id", "by Category"
+-#.level-filter.pretty=sortable "name"
+-#.level-filter.pretty=sortable "fun_rank", "Fun"
+-#.level-filter.pretty=sortable "puzzle_rank", "Puzzle"
+-#.level-filter.pretty=sortable "difficulty_rank", "Difficulty"
+-#.level-filter.pretty=sortable "overall_rank", "Overall"
+-#.level-filter.pretty=sortable "created_at", "Uploaded"

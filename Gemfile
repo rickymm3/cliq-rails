@@ -31,6 +31,7 @@ gem 'sass-rails'
 gem 'whenever', :require => false
 gem 'httparty'
 gem 'bootstrap-slider-rails'
+gem 'filterrific' #, path: '../filterrific'
 
 group :test, :development do
   gem "rspec-rails"
