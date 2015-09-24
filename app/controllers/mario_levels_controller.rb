@@ -13,16 +13,18 @@ class MarioLevelsController < ApplicationController
   end
 
   def create
+    @notice = 'Your level was added!'
     @mario_level = MarioLevel.new(mario_level_params)
     @mario_level.user_id = current_user.id
     if @mario_level.ss_loc.present?
       check_ss_loc
     end
     respond_to do |format|
-      if @mario_level.save
-        format.html { redirect_to @mario_level, notice: 'Your level was added!' }
+      if save_if_high_enough_points
+        format.html { redirect_to @mario_level, notice: @notice }
         format.json { render action: 'show', status: :created, location: @mario_level }
       else
+        flash.now[:notice] = @notice
         format.html { render action: 'new' }
         format.json { render json: @mario_level.errors, status: :unprocessable_entity }
       end
@@ -46,11 +48,30 @@ class MarioLevelsController < ApplicationController
     end
   end
 
+  def destroy
+    @mario_level = MarioLevel.find(params[:id])
+    @mario_level.delete
+  end
+
   def edit
     @mario_level = MarioLevel.find(params[:id])
   end
 
   private
+
+  def save_if_high_enough_points
+    count = MarioLevel.where(user_id:current_user).count
+    if count < 4
+      @mario_level.save
+    elsif count < 11 && current_user.points > 99
+      @mario_level.save
+    elsif count < 21 && current_user.points > 201
+      @mario_level.save
+    else
+      @notice = "You need to rate more stages to upload more!"
+      false
+    end
+  end
 
   def check_if_owner?
     if current_user

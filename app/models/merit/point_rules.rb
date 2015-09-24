@@ -19,9 +19,7 @@ module Merit
       #
       # score 15, :on => 'reviews#create', :to => [:reviewer, :reviewed]
       #
-      score 10, :on => [
-        'mariocomments#create'
-      ]
+      score 10, on: 'mario_ratings#create'
       #
       # score -10, :on => 'comments#destroy'
     end

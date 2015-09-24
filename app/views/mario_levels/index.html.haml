@@ -1,5 +1,13 @@
 %p
   Welcome to the Level Finder!
+-if current_user
+  %p
+    You have
+    %strong.red
+      =current_user.points
+    Rating Points!
+    %br
+    Rate more levels to upload more stages!
 %p
   Use the filters below to find the exact level you're looking for!  Fun, Puzzling, or Difficult?
 %p
