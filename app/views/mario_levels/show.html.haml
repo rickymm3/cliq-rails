@@ -24,6 +24,8 @@
       .mario-owned
         You own this level!
       =link_to "edit?", edit_mario_level_path(@mario_level)
+      =link_to "delete?", mario_level_path(@mario_level), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }
+
   .fb-share
     .fb-share-button{"data-href" => "http://cliqboards.com/mariomaker/levels/#{@mario_level.id}", "data-layout" => "button_count"}
   .ranks

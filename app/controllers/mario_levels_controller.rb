@@ -50,7 +50,16 @@ class MarioLevelsController < ApplicationController
 
   def destroy
     @mario_level = MarioLevel.find(params[:id])
-    @mario_level.delete
+    respond_to do |format|
+      if @mario_level.delete
+        format.html { redirect_to mario_levels_path, notice: "Level was deleted!" }
+        format.json { render action: 'show', status: :created, location: @mario_level }
+      else
+        flash.now[:notice] = @notice
+        format.html { render action: 'new' }
+        format.json { render json: @mario_level.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
