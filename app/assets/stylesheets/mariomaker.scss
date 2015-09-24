@@ -242,8 +242,21 @@
 .goomba {
   position:absolute;
   padding-left: 300px;
-  margin:auto;
   top: -18px;
   width: 15px;
   height: 15px;
+}
+
+.bowser {
+  position: absolute;
+  padding-left: 425px;
+  top: -40px;
+  width:40px;
+  height: 40px;
+}
+
+.flag-pole {
+  position:absolute;
+  padding-left: 390px;
+  top: -100px;
 }
