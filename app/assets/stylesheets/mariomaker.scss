@@ -123,10 +123,9 @@
 
 }
 
-.fun-rank {
+.rank {
   color: white;
   font-weight: bold;
-  background-color: #ff5b00;
   border-radius: 3px;
   padding: 0px 5px;
   float:left;
@@ -134,34 +133,36 @@
   margin-bottom: 5px;
 }
 
-.puzzle-rank {
-  color: white;
-  font-weight: bold;
+.puzzle {
   background-color: #d9a247;
-  border-radius: 3px;
-  padding: 0px 5px;
-  float:left;
-  margin-right: 5px;
 }
 
-.difficulty-rank {
-  color: white;
-  font-weight: bold;
+.difficult {
   background-color: #1b6eb2;
-  border-radius: 3px;
-  padding: 0px 5px;
-  float:left;
-  margin-right: 5px;
 }
 
-.overall-rank {
-  color: white;
-  font-weight: bold;
-  background-color: #6a5d54;
-  border-radius: 3px;
-  padding: 0px 5px;
-  float:left;
-  margin-right: 5px;
+.fun {
+  background-color: #ff5b00;
+}
+
+.autoplay {
+  background-color: #ffd0a4;
+}
+
+.traditional {
+  background-color: #ff98c7;
+}
+.themed {
+  background-color: #f8ff93;
+}
+.gimmick {
+  background-color: #bd9aff;
+}
+.boss {
+  background-color: #aaff9e;
+}
+.rebuilt {
+  background-color: #b6fff7;
 }
 
 .mario-owned {

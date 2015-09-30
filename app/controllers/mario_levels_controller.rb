@@ -10,7 +10,8 @@ class MarioLevelsController < ApplicationController
         params[:filterrific],
         :select_options => {
             sorted_by: MarioLevel.options_for_sorted_by,
-            with_l_category_id: LCategory.options_for_select
+            with_l_category_id: LCategory.options_for_select,
+            played: current_user
         }
     ) or return
     @levels = @filterrific.find.page(params[:page])

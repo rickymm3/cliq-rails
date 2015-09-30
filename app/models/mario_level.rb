@@ -20,7 +20,8 @@ class MarioLevel < ActiveRecord::Base
               available_filters: [
                 :sorted_by,
                 :search_query,
-                :with_l_category_id
+                :with_l_category_id,
+                :played
               ]
 
   self.per_page = 10
@@ -56,11 +57,18 @@ class MarioLevel < ActiveRecord::Base
         order("mario_levels.created_at #{ direction }")
       when /^name_/
         order("LOWER(mario_levels.name) #{ direction }")
-      when /^fun_rank_/
-        order("LOWER(maior_levels.fun_rank) #{ direction }").includes(:country)
+      when /^overall_rank/
+        order("case when mario_levels.overall_rank is null then 1 else 0 end, mario_levels.overall_rank #{ direction }")
       else
         raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
     end
+  }
+
+  scope :played, lambda { |user_id|
+    where(
+    (
+      MarioLevel.all.not_in MarioRating.where(user_id: user_id))
+    )
   }
 
   scope :with_l_category_id, lambda { |l_category_ids|
@@ -71,7 +79,9 @@ class MarioLevel < ActiveRecord::Base
     [
         ['Name', 'name_asc'],
         ['Uploaded (oldest)', 'created_at_asc'],
-        ['Uploaded (newest)', 'created_at_desc']
+        ['Uploaded (newest)', 'created_at_desc'],
+        ['Rank (worst)', 'overall_rank_asc'],
+        ['Rank (best)', 'overall_rank_desc']
     ]
   end
 

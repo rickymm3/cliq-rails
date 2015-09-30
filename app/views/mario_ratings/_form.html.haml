@@ -15,22 +15,8 @@
     %table
       %tr
         %td
-          .label-custom1.label-width Fun
-        %td
-          =f.range_field :fun, :min=>0, :max=>10, :class=>"slider", :id=>"slider-fun"
-      %tr
-        %td
-          .label-custom1.label-width Puzzle
-        %td
-          =f.range_field :puzzle, :min=>0, :max=>10, :class=>"slider", :id=>"slider-puzzle"
-      %tr
-        %td
-          .label-custom1.label-width Difficulty
-        %td
-          =f.range_field :difficulty, :min=>0, :max=>10, :class=>"slider", :id=>"slider-difficulty"
-      %tr
-        %td
-          .label-custom1.label-width Overall
+          .label-custom1.label-width
+            =@mario_level.l_category.category.capitalize
         %td
           =f.range_field :overall, :min=>0, :max=>10, :class=>"slider", :id=>"slider-overall"
   .submit
